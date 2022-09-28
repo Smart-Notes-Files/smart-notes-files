@@ -19,7 +19,7 @@ const App = ({ contract, currentUser, nearConfig, wallet }) => {
   };
   return (
     <>
-      <h1>NEAR  Smart contract Notes</h1>
+      <h1>NEAR  Smart  Notes and Files Public</h1>
       {currentUser
         ? <div>
           <h2>
