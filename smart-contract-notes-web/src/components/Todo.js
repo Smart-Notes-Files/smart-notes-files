@@ -17,11 +17,9 @@ export function Todo({ contract, id, task, done }) {
 
   return (
     <>
-      <p>
-        <input type="checkbox" checked={checked} onChange={complete} />
-        {task}
-      </p>
-      <button onClick={del}>delete</button>
+     <th scope="row" class="col-2"><input type="checkbox" checked={checked} onChange={complete} /></th>
+	<td class="col-8">{task}</td>
+	<td class="col-2"><button class="btn btn-sm btn-danger" onClick={del}>Delete</button></td>
     </>
   );
 }

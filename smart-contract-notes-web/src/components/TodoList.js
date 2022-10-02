@@ -7,7 +7,6 @@ const PER_PAGE_LIMIT = 3;
 const TodoList = ({ contract }) => {
   const [todos, setTodos] = useState([]);
   const [page, setPage] = useState(1);
-
   useEffect(() => {
     let offset; 
     if(page < 1) {
@@ -30,19 +29,31 @@ const TodoList = ({ contract }) => {
   }, [page, contract]);
 
   return (
-    <ul>
+    <>
+		<table className="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">-</th>
+					<th scope="col">Notes</th>
+					<th scope="col">-</th>
+				</tr>
+			</thead>
+			<tbody>
+					{todos.map((todo) => (
+						<tr class="table-light" key={todo.id}>
+						  <Todo contract={contract} {...todo} />
+						</tr>
+					  ))}
+				
+			</tbody>
+		</table>
       <div className="flex">
       Current Page: {page}
       </div>
-      <button onClick={() => setPage((page) => page - 1)}>&lt;</button>
+      <button className="btn btn-outline-primary" onClick={() => setPage((page) => page - 1)}>&lt;</button>
       {" "}
-      <button onClick={() => setPage((page) => page + 1)}>&gt;</button>
-      {todos.map((todo) => (
-        <li key={todo.id}>
-          <Todo contract={contract} {...todo} />
-        </li>
-      ))}
-    </ul>
+      <button className="btn btn-outline-primary" onClick={() => setPage((page) => page + 1)}>&gt;</button>
+     </>
   );
 }
 

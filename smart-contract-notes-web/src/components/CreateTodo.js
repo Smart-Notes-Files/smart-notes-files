@@ -19,15 +19,17 @@ const CreateTodo = ({ contract }) => {
 
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Enter a Note"
-        value={task}
-        onChange={({ target }) => setTask(target.value)}
-      />
-      <button disabled={loading}>Create Note</button>
-    </form>
+    <form onSubmit={handleSubmit} >
+                        
+                            <div className="row">
+                                <div className="col-8">
+                                    <input type="text" className="form-text" placeholder="Enter a Note" value={task} onChange={({ target }) => setTask(target.value)} />
+                                </div>
+                                <div className="col-3">
+                                    <button disabled={loading} className="btn btn-success">Create</button>
+                                </div>
+                            </div>
+                    </form>
   );
 }
 
